@@ -1,0 +1,132 @@
+h1 {
+    font-family: "Andale Mono", AndaleMono, monospace;
+    font-size: 24px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 26.4px;
+}
+
+h3 {
+    font-family: "Andale Mono", AndaleMono, monospace;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 15.4px;
+}
+
+p, a, a:hover {
+    font-family: "Andale Mono", AndaleMono, monospace;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 20px;
+    color: #000000;
+}
+
+a {
+    text-decoration: underline;
+}
+
+.tracker {
+    font-family: "Andale Mono", AndaleMono, monospace;
+}
+
+.trackerX {
+    color: red;
+    font-weight: 700;
+    font-size: large;
+}
+
+.spaceup {
+    margin-top: 40px;
+}
+
+.questions {
+    min-height: 240px;
+    align-content: baseline;
+}
+
+.question {
+    font-size: 20px;
+    line-height: inherit;
+}
+
+button {
+    font-family: "Andale Mono", AndaleMono, monospace;
+}
+
+.privilege {
+    background-color: rgba(255, 255, 255, 0.0);
+    opacity: 1.0;
+    font-family: "HelveticaNeue-Light", Helvetica, Arial, serif;
+    font-size: 30.0px;
+    color: rgba(0, 0, 0, 1.0);
+    text-align: center;
+    line-height: 36.0px;
+}
+
+.walk {
+    background-color: rgba(255, 255, 255, 0.0);
+    opacity: 1.0;
+    font-family: "HelveticaNeue-Bold", Helvetica, Arial, serif;
+    font-size: 30.0px;
+    color: rgba(0, 0, 0, 1.0);
+    text-align: center;
+    line-height: 37.0px;
+}
+
+.introbox {
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+
+.introtext {
+    font-family: HelveticaNeue;
+    font-size: 60px;
+    color: #000000;
+}
+
+.cover {
+    background: #FFD200;
+}
+
+.sampletext1, .sampletext2, .sampletext3, .sampletext4 {
+    font-family: AmericanTypewriter;
+    font-size: 25px;
+    letter-spacing: 0.8px;
+}
+
+.sampletext1 {
+    color: #000000;
+}
+
+.sampletext2 {
+    color: #353535;
+}
+
+.sampletext3 {
+    color: #605F5F;
+}
+
+.sampletext4 {
+    color: #8F8C8C;
+}
+
+.trybutton {
+    text-align: center;
+    width: 100%;
+}
+
+.trybutton>a {
+    background: #000000;
+    border-radius: 31px;
+    font-family: HelveticaNeue-Bold;
+    font-size: 30px;
+    color: #FFFFFF !important;
+    text-align: center;
+    width: 250px;
+    margin-top: 50px;
+}
