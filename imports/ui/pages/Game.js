@@ -81,7 +81,7 @@ class Game extends React.Component {
         return (
             <div className="container">
                 <div className="row questions">
-                    {questionListLength ? <p style={{ marginBottom: 20 }} className="tracker">{backText}<span className="trackerX">X</span>{forwardText}</p> : null}
+                    {questionListLength ? <p style={{ marginBottom: 40 }} className="tracker">{backText}<span className="trackerX">X</span>{forwardText}</p> : null}
                     {this.state.gameStarted && questionListLength ?
                         <GameQuestion index={this.state.questionIndex + 1} question={question} questions={this.props.questions} />
                         :
@@ -91,15 +91,15 @@ class Game extends React.Component {
                         </div>
                     }
                 </div>
-                <div className="row">
+                <div className="row justify-center">
                     {!this.state.gameStarted ?
-                        <button className="btn btn-sm btn-outline-dark" onClick={this.startGame} type="button">Click to start game</button>
+                        <button className="btn btn-outline-dark" onClick={this.startGame} type="button">Click to start game</button>
                         :
                         questionListLength ?
                             question ?
                                 <div>
-                                    <button style={{ marginRight: 10 }} className="btn btn-sm btn-outline-dark" onClick={this.stepBack} type="button">Step back</button>
-                                    <button className="btn btn-sm btn-outline-dark" onClick={this.stepForward} type="button">Step forward</button>
+                                    <button style={{ marginRight: 10 }} className="btn btn-outline-dark" onClick={this.stepBack} type="button">Step back</button>
+                                    <button className="btn btn-outline-dark" onClick={this.stepForward} type="button">Step forward</button>
                                 </div>
                                 :
                                 <a href="#" onClick={this.startOver}>Start over?</a>

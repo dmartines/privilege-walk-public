@@ -45,8 +45,33 @@ a {
 }
 
 .questions {
-    min-height: 240px;
+    min-height: 400px;
     align-content: baseline;
+}
+
+.logotext {
+    margin-bottom: 40px;
+}
+
+.justify-center {
+    text-align: center;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .questions {
+        min-height: 240px;
+    }
+    .logotext {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
 }
 
 .question {

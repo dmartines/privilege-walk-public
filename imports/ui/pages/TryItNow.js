@@ -10,7 +10,7 @@ class TryItNow extends React.Component {
 				<Header />
 				<div className="container">
 					<div className="row">
-						<div className="col-sm-12 col-md-2">
+						<div className="col-sm-12 col-md-2 logotext">
 							<h3>Priviledge Walk</h3>
 						</div>
 						<div className="col-sm-12 col-md-10">
