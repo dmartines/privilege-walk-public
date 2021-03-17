@@ -12,6 +12,7 @@ class Game extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            gameStarted: false,
             questionIndex: 0,
             stepForward: 0,
             stepBack: 0
@@ -20,6 +21,7 @@ class Game extends React.Component {
         this.stepForward = this.stepForward.bind(this);
         this.stepBack = this.stepBack.bind(this);
         this.startOver = this.startOver.bind(this);
+        this.startGame = this.startGame.bind(this);
     }
 
     stepForward(e) {
@@ -45,9 +47,17 @@ class Game extends React.Component {
     startOver(e) {
         e.preventDefault();
         this.setState({
+            gameStarted: false,
             questionIndex: 0,
             stepForward: 0,
             stepBack: 0
+        });
+    }
+
+    startGame(e) {
+        e.preventDefault();
+        this.setState({
+            gameStarted: true,
         });
     }
 
@@ -64,10 +74,6 @@ class Game extends React.Component {
 
         var question = questionnaire && questionnaire.question_ids ? questionnaire.question_ids[this.state.questionIndex] : {};
         var questionListLength = questionnaire.question_ids ? questionnaire.question_ids.length : 0;
-        // let tracker = "X";
-        // var walkIndex = (Math.round(tracker.length / 2)) + this.state.stepForward - this.state.stepBack;
-        // tracker = tracker.replace(/./g, (c, i) => i == Math.round(tracker.length / 2) ? 'O' : c);
-        // tracker = tracker.replace(/./g, (c, i) => i == walkIndex ? '<span>X</span>' : c);
 
         let backText = "back " + new Array((questionListLength) + this.state.stepForward - this.state.stepBack).join("-");
         let forwardText = new Array((questionListLength) - this.state.stepForward + this.state.stepBack).join("-") + " forward";
@@ -76,18 +82,28 @@ class Game extends React.Component {
             <div className="container">
                 <div className="row questions">
                     {questionListLength ? <p style={{ marginBottom: 20 }} className="tracker">{backText}<span className="trackerX">X</span>{forwardText}</p> : null}
-                    <GameQuestion index={this.state.questionIndex + 1} question={question} questions={this.props.questions} />
+                    {this.state.gameStarted && questionListLength ?
+                        <GameQuestion index={this.state.questionIndex + 1} question={question} questions={this.props.questions} />
+                        :
+                        <div>
+                            <p className="question">You are the <span className="trackerX">X</span></p>
+                            <p className="question">During the game you will be asked to walk back or forward</p>
+                        </div>
+                    }
                 </div>
                 <div className="row">
-                    {questionListLength ?
-                        question ?
-                            <div>
-                                <button style={{ marginRight: 10 }} className="btn btn-sm btn-outline-dark" onClick={this.stepBack} type="button">Step back</button>
-                                <button className="btn btn-sm btn-outline-dark" onClick={this.stepForward} type="button">Step forward</button>
-                            </div>
-                            :
-                            <a href="#" onClick={this.startOver}>Start over?</a>
-                        : null
+                    {!this.state.gameStarted ?
+                        <button className="btn btn-sm btn-outline-dark" onClick={this.startGame} type="button">Click to start game</button>
+                        :
+                        questionListLength ?
+                            question ?
+                                <div>
+                                    <button style={{ marginRight: 10 }} className="btn btn-sm btn-outline-dark" onClick={this.stepBack} type="button">Step back</button>
+                                    <button className="btn btn-sm btn-outline-dark" onClick={this.stepForward} type="button">Step forward</button>
+                                </div>
+                                :
+                                <a href="#" onClick={this.startOver}>Start over?</a>
+                            : null
                     }
                 </div>
             </div>
