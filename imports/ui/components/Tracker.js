@@ -6,7 +6,6 @@ class Tracker extends React.Component {
         if (this.props.trackerSize == undefined || this.props.trackerSize.size == 0) {
             return null;
         }
-        console.log(this.props.trackerSize);
         var trackerSize = Array.from(' '.repeat(this.props.trackerSize.size + 1));
         return (
             <div className="col-12">
