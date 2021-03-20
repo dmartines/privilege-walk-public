@@ -54,7 +54,7 @@ a {
 }
 
 .logotext {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .justify-center {
@@ -63,13 +63,19 @@ a {
 }
 
 .graydash {
-    color: #afafaf;
+    color: #888888;
+    font-size: 6px;
+}
+
+.blackdash {
+    color: #000;
+    font-size: 6px;
 }
 
 .trackers {
     display: block;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 hr {
@@ -82,7 +88,8 @@ hr {
 
 .trackercell {
     padding: 0;
-    line-height: 0;
+    line-height: 1;
+    max-width: 4px;
 }
 
 .trackercellstart {
@@ -90,15 +97,33 @@ hr {
     line-height: 1;
 }
 
+.question {
+    font-size: 17px;
+    line-height: inherit;
+}
+
 @media (min-width: 768px) {
+    .graydash, .blackdash {
+        font-size: inherit;
+    }
     .middletext {
         margin-left: -3%;
     }
     .questions {
-        min-height: 240px;
+        min-height: 300px;
     }
     .logotext {
         margin-bottom: 20px;
+    }
+    .trackercell {
+        max-width: 9px;
+    }
+    .trackers {
+        margin-bottom: 30px;
+    }
+    .question {
+        font-size: 20px;
+        line-height: inherit;
     }
 }
 
@@ -107,11 +132,6 @@ hr {
         padding-right: 20px;
         padding-left: 20px;
     }
-}
-
-.question {
-    font-size: 20px;
-    line-height: inherit;
 }
 
 button {
