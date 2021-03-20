@@ -1,19 +1,49 @@
 import React from 'react';
 import Header from '../layouts/Header';
+import Footer from '../layouts/Footer';
 import Game from '../pages/Game';
+
+var utils = require('../../../lib/utils');
 
 class TryItNow extends React.Component {
 
+	constructor(props) {
+		super(props);
+		this.state = {
+			dlmode: utils.getDarkLightMode()
+		}
+		this.toggleDarkLight = this.toggleDarkLight.bind(this);
+	}
+
+	toggleDarkLight() {
+		this.setState({
+			dlmode: utils.getDarkLightMode(),
+		});
+	}
+
 	render() {
+
+		var element = document.body;
+		if (!this.state.dlmode) {
+			element.classList.add("dark-mode");
+		} else {
+			element.classList.remove("dark-mode");
+		}
+
 		return (
 			<div>
-				<Header />
+				<Header dlmode={this.state.dlmode} callback={this.toggleDarkLight} />
 				<div className="container">
 					<div className="row">
 						<div className="col-sm-12 col-md-2 logotext">
 							<div className="row">
-								<div className="col-2 col-sm-12" style={{marginBottom:5}}>
-									<img className="logoimg" src="img/pw-logo.png" />
+								<div className="col-2 col-sm-12" style={{ marginBottom: 5 }}>
+									{this.state.dlmode ?
+										<img className="logoimg" src="img/pw-logo.png" />
+										:
+										<img className="logoimg" src="img/pw-logo-w.png" />
+									}
+
 								</div>
 								<div className="col-3 col-sm-12 logotext">
 									<h3>Priviledge Walk</h3>
@@ -21,10 +51,11 @@ class TryItNow extends React.Component {
 							</div>
 						</div>
 						<div className="col-sm-12 col-md-10">
-							<Game questionnaireName="main-questionnaire" />
+							<Game dlmode={this.state.dlmode} questionnaireName="main-questionnaire" />
 						</div>
 					</div>
 				</div>
+				<Footer dlmode={this.state.dlmode}/>
 			</div>
 		);
 	}

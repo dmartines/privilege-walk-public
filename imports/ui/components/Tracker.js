@@ -2,6 +2,11 @@ import React from 'react';
 
 class Tracker extends React.Component {
     render() {
+
+        if (this.props.trackerSize == undefined || this.props.trackerSize.size == 0) {
+            return null;
+        }
+        console.log(this.props.trackerSize);
         var trackerSize = Array.from(' '.repeat(this.props.trackerSize.size + 1));
         return (
             <div className="col-12">
@@ -26,7 +31,7 @@ class Tracker extends React.Component {
                         i < this.props.trackerSize.size / 2 ?
                             <div className="col-1 trackercell" key={i}><span className="graydash">-</span></div>
                             :
-                            <div className="col-1 trackercell" key={i}><span className="blackdash">-</span></div>
+                            <div className="col-1 trackercell" key={i}><span className={this.props.dlmode ? "blackdash" : "whitedash"}>-</span></div>
                     )}
                 </div>
                 {this.props.players.map((p, pi) =>

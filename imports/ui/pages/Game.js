@@ -75,7 +75,7 @@ class Game extends React.Component {
         var questionListLength = questionnaire.question_ids ? questionnaire.question_ids.length : 0;
 
         var trackerSize = {
-            size: questionListLength*2,
+            size: questionListLength * 2,
             start: Math.round(questionListLength),
         };
 
@@ -87,7 +87,7 @@ class Game extends React.Component {
         return (
             <div className="container">
                 <div className="row questions">
-                    <Tracker trackerSize={trackerSize} players={playerPositions} />
+                    <Tracker dlmode={this.props.dlmode} trackerSize={trackerSize} players={playerPositions} />
                     <div className="col-12 trackers" ref={this.trackerInput}>
                     </div>
                     <div className="col-12">
@@ -103,16 +103,16 @@ class Game extends React.Component {
                 </div>
                 <div className="row justify-center">
                     {!this.state.gameStarted ?
-                        <button className="btn btn-outline-dark" onClick={this.startGame} type="button">Click to start game</button>
+                        <button className={this.props.dlmode ? "btn btn-outline-dark" : "btn btn-outline-light"} onClick={this.startGame} type="button">Click to start game</button>
                         :
                         questionListLength ?
                             question ?
                                 <div>
-                                    <button style={{ marginRight: 10 }} className="btn btn-outline-dark" onClick={this.stepBack} type="button">Step back</button>
-                                    <button className="btn btn-outline-dark" onClick={this.stepForward} type="button">Step forward</button>
+                                    <button style={{ marginRight: 10 }} className={this.props.dlmode ? "btn btn-outline-dark" : "btn btn-outline-light"} onClick={this.stepBack} type="button">Step back</button>
+                                    <button className={this.props.dlmode ? "btn btn-outline-dark" : "btn btn-outline-light"} onClick={this.stepForward} type="button">Step forward</button>
                                 </div>
                                 :
-                                <a href="#" onClick={this.startOver}>Start over?</a>
+                                <a href="#" onClick={this.startOver} className={this.props.dlmode ? "" : "adark"}>Start over?</a>
                             : null
                     }
                 </div>
