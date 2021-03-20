@@ -33,7 +33,6 @@ class Game extends React.Component {
             questionIndex: this.state.questionIndex + 1,
             stepForward: this.state.stepForward + 1,
         });
-        console.log(this.state);
     }
 
     stepBack(e) {
@@ -42,7 +41,6 @@ class Game extends React.Component {
             questionIndex: this.state.questionIndex + 1,
             stepBack: this.state.stepBack + 1,
         });
-        console.log(this.state);
     }
 
     startOver(e) {
@@ -60,10 +58,6 @@ class Game extends React.Component {
         this.setState({
             gameStarted: true,
         });
-    }
-
-    componentDidMount() {
-        console.log(this.trackerInput.current.offsetWidth)
     }
 
     render() {
@@ -89,8 +83,6 @@ class Game extends React.Component {
             name: "X",
             position: trackerSize.start + this.state.stepForward - this.state.stepBack,
         }];
-
-        console.log(playerPositions[0]);
 
         return (
             <div className="container">
