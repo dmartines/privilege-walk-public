@@ -11,7 +11,14 @@ class TryItNow extends React.Component {
 				<div className="container">
 					<div className="row">
 						<div className="col-sm-12 col-md-2 logotext">
-							<h3>Priviledge Walk</h3>
+							<div className="row">
+								<div className="col-2 col-sm-12" style={{marginBottom:5}}>
+									<img className="logoimg" src="img/pw-logo.png" />
+								</div>
+								<div className="col-3 col-sm-12 logotext">
+									<h3>Priviledge Walk</h3>
+								</div>
+							</div>
 						</div>
 						<div className="col-sm-12 col-md-10">
 							<Game questionnaireName="main-questionnaire" />

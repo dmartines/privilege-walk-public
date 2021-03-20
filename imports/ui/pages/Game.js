@@ -6,6 +6,7 @@ import Questionnaires from '../../api/questionnaires/questionnaires';
 import Questions from '../../api/questions/questions';
 
 import GameQuestion from './GameQuestion';
+import Tracker from '../components/Tracker';
 
 class Game extends React.Component {
 
@@ -15,33 +16,33 @@ class Game extends React.Component {
             gameStarted: false,
             questionIndex: 0,
             stepForward: 0,
-            stepBack: 0
+            stepBack: 0,
         }
 
         this.stepForward = this.stepForward.bind(this);
         this.stepBack = this.stepBack.bind(this);
         this.startOver = this.startOver.bind(this);
         this.startGame = this.startGame.bind(this);
+
+        this.trackerInput = React.createRef()
     }
 
     stepForward(e) {
         e.preventDefault();
-        console.log("Clicked forward");
         this.setState({
             questionIndex: this.state.questionIndex + 1,
-            stepForward: this.state.stepForward + 1
+            stepForward: this.state.stepForward + 1,
         });
-        console.log(this.state.questionIndex);
+        console.log(this.state);
     }
 
     stepBack(e) {
         e.preventDefault();
-        console.log("Clicked back");
         this.setState({
             questionIndex: this.state.questionIndex + 1,
-            stepBack: this.state.stepBack + 1
+            stepBack: this.state.stepBack + 1,
         });
-        console.log(this.state.questionIndex);
+        console.log(this.state);
     }
 
     startOver(e) {
@@ -61,6 +62,10 @@ class Game extends React.Component {
         });
     }
 
+    componentDidMount() {
+        console.log(this.trackerInput.current.offsetWidth)
+    }
+
     render() {
 
         var questionnaire = {
@@ -75,21 +80,34 @@ class Game extends React.Component {
         var question = questionnaire && questionnaire.question_ids ? questionnaire.question_ids[this.state.questionIndex] : {};
         var questionListLength = questionnaire.question_ids ? questionnaire.question_ids.length : 0;
 
-        let backText = "back " + new Array((questionListLength) + this.state.stepForward - this.state.stepBack).join("-");
-        let forwardText = new Array((questionListLength) - this.state.stepForward + this.state.stepBack).join("-") + " forward";
+        var trackerSize = {
+            size: questionListLength*2,
+            start: Math.round(questionListLength),
+        };
+
+        var playerPositions = [{
+            name: "X",
+            position: trackerSize.start + this.state.stepForward - this.state.stepBack,
+        }];
+
+        console.log(playerPositions[0]);
 
         return (
             <div className="container">
                 <div className="row questions">
-                    {questionListLength ? <p style={{ marginBottom: 40 }} className="tracker">{backText}<span className="trackerX">X</span>{forwardText}</p> : null}
-                    {this.state.gameStarted && questionListLength ?
-                        <GameQuestion index={this.state.questionIndex + 1} question={question} questions={this.props.questions} />
-                        :
-                        <div>
-                            <p className="question">You are the <span className="trackerX">X</span></p>
-                            <p className="question">During the game you will be asked to walk back or forward</p>
-                        </div>
-                    }
+                    <Tracker trackerSize={trackerSize} players={playerPositions} />
+                    <div className="col-12 trackers" ref={this.trackerInput}>
+                    </div>
+                    <div className="col-12">
+                        {this.state.gameStarted && questionListLength ?
+                            <GameQuestion index={this.state.questionIndex + 1} question={question} questions={this.props.questions} />
+                            :
+                            <div>
+                                <p className="question">You are the <span className="trackerX">X</span> at the start</p>
+                                <p className="question">During the game you will be asked to walk back or forward</p>
+                            </div>
+                        }
+                    </div>
                 </div>
                 <div className="row justify-center">
                     {!this.state.gameStarted ?
