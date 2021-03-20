@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../layouts/Header';
+import Footer from '../layouts/Footer';
 import Game from '../pages/Game';
 
 class TryItNow extends React.Component {
@@ -25,6 +26,7 @@ class TryItNow extends React.Component {
 						</div>
 					</div>
 				</div>
+				<Footer />
 			</div>
 		);
 	}
