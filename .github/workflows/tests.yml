@@ -16,7 +16,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  tests:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -25,7 +25,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - uses: meteorengineer/setup-meteor@v1
-        with:
+				with:
           meteor-release: '2.0'
-      - run: meteor npm install
+      - run: meteor test --driver-package meteortesting:mocha
       - run: meteor npm test
