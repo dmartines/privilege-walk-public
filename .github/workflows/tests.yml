@@ -25,7 +25,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - uses: meteorengineer/setup-meteor@v1
-	with:
+        with:
           meteor-release: '2.0'
       - run: meteor test --driver-package meteortesting:mocha
       - run: meteor npm test
