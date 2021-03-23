@@ -31,4 +31,4 @@ jobs:
       - name: Install dependencies
         run: meteor npm install
       - name: Run tests
-        run: meteor test --driver-package meteortesting:mocha
+        run: meteor test --once --driver-package meteortesting:mocha
