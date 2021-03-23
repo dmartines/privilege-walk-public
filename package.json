@@ -2,17 +2,26 @@
   "name": "privilegewalk",
   "private": true,
   "scripts": {
-    "start": "meteor run"
+    "start": "meteor run",
+    "test": "TEST_WATCH=1 meteor test --driver-package meteortesting:mocha"
   },
   "dependencies": {
     "@babel/runtime": "^7.8.3",
-    "meteor-node-stubs": "^1.0.0",
+    "chai": "^4.3.4",
     "firebase": "^7.14.0",
     "history": "^4.10.1",
     "jquery": "^3.5.0",
+    "meteor-node-stubs": "^1.0.0",
     "popper.js": "^1.16.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^15.7.0",
+    "react-dom": "^15.7.0",
     "react-router": "^5.1.2"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^11.2.5",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-15": "^1.4.3",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "react-test-renderer": "^15.7.0"
   }
 }
