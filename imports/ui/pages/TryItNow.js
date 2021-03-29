@@ -46,7 +46,7 @@ class TryItNow extends React.Component {
 
 								</div>
 								<div className="col-3 col-sm-12 logotext">
-									<h3>Priviledge Walk</h3>
+									<h3>Privilege Walk</h3>
 								</div>
 							</div>
 						</div>
