@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "start": "meteor run",
-    "test": "TEST_WATCH=1 meteor test --driver-package meteortesting:mocha"
+    "test": "meteor test --once --driver-package meteortesting:mocha"
   },
   "dependencies": {
     "@babel/runtime": "^7.8.3",
@@ -13,14 +13,13 @@
     "jquery": "^3.5.0",
     "meteor-node-stubs": "^1.0.0",
     "popper.js": "^1.16.1",
-    "react": "^16.13.1",
+    "react": "^16.14.0",
     "react-dom": "^16.13.1",
     "react-router": "^5.1.2"
   },
   "devDependencies": {
     "@testing-library/react": "^11.2.5",
     "enzyme": "^3.11.0",
-    "enzyme-adapter-react-15": "^1.4.3",
     "enzyme-adapter-react-16": "^1.15.6",
     "es6-denodeify": "^0.1.5",
     "react-test-renderer": "^15.7.0"

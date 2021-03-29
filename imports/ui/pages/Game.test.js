@@ -24,21 +24,20 @@
 //   expect(screen.getByText(testMessage)).toBeInTheDocument()
 // })
 
-<Tracker dlmode={this.props.dlmode} trackerSize={trackerSize} players={playerPositions} />
-import React from 'react';
-import { shallow, configure } from 'enzyme';
-import chai from 'chai';
-import Game from './Game';
-import Adapter from 'enzyme-adapter-react-15';
+// import React from 'react';
+// import { shallow, configure } from 'enzyme';
+// import chai from 'chai';
+// import Game from './Game';
+// import Adapter from 'enzyme-adapter-react-16';
 
-configure({ adapter: new Adapter() });
-describe('Game Test', () => {
-    const item = shallow(<Game />);
-    it('should render container', () => {
-        chai.assert(item.hasClass('container'));
-        chai.assert(item.find('div.questions'));
-    });
-    it('button to start game', () => {
-        chai.assert.equal(item.find('button').text(),'You are the <span X at the start');
-    });
-});
+// configure({ adapter: new Adapter() });
+// describe('Game Test', () => {
+//     const item = shallow(<Game />);
+//     it('should render container', () => {
+//         chai.assert(item.hasClass('container'));
+//         chai.assert(item.find('div.questions'));
+//     });
+//     it('button to start game', () => {
+//         chai.assert.equal(item.find('button').text(),'You are the <span X at the start');
+//     });
+// });
