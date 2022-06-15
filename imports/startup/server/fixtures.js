@@ -2,6 +2,7 @@ import Questions from '../../api/questions/questions';
 import Questionnaires from '../../api/questionnaires/questionnaires';
 
 var questionList = [
+    "If you are a human animal, take one step forward.",
     "If you are right-handed, take one step forward.",
     "If English is your first language, take one step forward.",
     "If one or both of your parents have a college degree, take one step forward.",
